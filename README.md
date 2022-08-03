@@ -1,5 +1,5 @@
 # opencv-qt-modetect
-Webcam based motion detection using OpenCV2 and Qt6
+Webcam based motion detection using OpenCV and Qt6
 
 ![Window](https://raw.githubusercontent.com/gmbows/opencv-qt-modetect/master/window.png)
 
