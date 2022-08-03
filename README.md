@@ -16,8 +16,8 @@ Webcam-based motion detection using OpenCV and Qt6
 Use the sliders to adjust image processing settings. <br>
 `Contour area` sets the minimum contour bounding-box area required to classify the contour as movement. <br>
 `Blur size` sets the size of a blur filter used in image processing.  Increase this for noisy environments or to "squash" smaller contours. <br>
-`Diff threshold` sets the alpha threshold that must be met to consider two pixels different. 
-Change the `Display layer` dropdown setting to select which frame is displayed in the viewport.
+`Diff threshold` sets the alpha threshold that must be met to consider two pixels different. <br>
+Change the `Display layer` dropdown setting to select which frame to display in the viewport.
 
 ## Build
 
