@@ -57,6 +57,7 @@ void MainWindow::start_cv() {
 		this->motion_label->setText("NO");
 		if(this->auto_reset and ++frames%2 == 0) this->reset_frame();
 		cam >> frame_grayscale;
+		display_target = frame_grayscale;
 		this->preprocess_frame(frame_grayscale);
 
 		cv::absdiff(firstframe,frame_grayscale,delta);
@@ -66,7 +67,6 @@ void MainWindow::start_cv() {
 		findContours(thresh, cnts, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
 		switch(this->get_selected_layer()) {
 			case DEFAULT:
-				cam >> display_target;
 				break;
 			case DELTA:
 				display_target = delta;
@@ -133,13 +133,9 @@ void MainWindow::on_resetFrameButton_clicked() {
 	this->reset_frame();
 }
 
-
 void MainWindow::on_checkBox_stateChanged(int arg1) {
 	this->auto_reset = arg1;
 }
-
-
-
 
 void MainWindow::update_area_label() {
 	std::string label = "Contour area: "+std::to_string(this->min_coutour_area);
@@ -162,7 +158,6 @@ void MainWindow::update_thresh_label() {
 void MainWindow::on_contourSizeThreshold_valueChanged(int position) {
 	this->min_coutour_area = position;
 	this->update_area_label();
-	this->reset_frame();
 }
 
 void MainWindow::on_blurRadius_valueChanged(int position) {
